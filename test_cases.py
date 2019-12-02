@@ -1,4 +1,6 @@
-import day01
+import numpy as np
+
+import day01, day02
 
 def test_day01_part1():
     assert day01.part1([12]) == 2
@@ -12,7 +14,10 @@ def test_day01_part2():
     assert day01.part2([100756]) == 50346
 
 def test_day02_part1():
-    pass
+    assert day02.execute([1,0,0,0,99]) == [2, 0, 0, 0, 99]
+    assert day02.execute([2,3,0,3,99]) == [2, 3, 0, 6, 99]
+    assert day02.execute([2,4,4,5,99,0]) == [2, 4, 4, 5, 99, 9801]
+    assert day02.execute([1,1,1,4,99,5,6,0,99]) == [30, 1, 1, 4, 2, 5, 6, 0, 99]
 
 def test_day02_part2():
     pass
