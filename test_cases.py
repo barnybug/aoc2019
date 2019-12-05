@@ -1,6 +1,7 @@
 import numpy as np
+import pytest
 
-import day01, day02, day03, day04
+import day01, day02, day03, day04, day05
 
 def test_day01_part1():
     assert day01.part1([12]) == 2
@@ -36,10 +37,44 @@ def test_day04_part2():
     assert day04.parts('123450-123456')[1] == 1
 
 def test_day05_part1():
-    pass
+    assert day05.part1(['1002,4,3,4,33']) == None
 
-def test_day05_part2():
-    pass
+@pytest.mark.parametrize(
+    ['program', 'test_input', 'output'],
+    [
+        ('3,9,8,9,10,9,4,9,99,-1,8', 8, 1),
+        ('3,9,8,9,10,9,4,9,99,-1,8', 0, 0),
+        ('3,9,7,9,10,9,4,9,99,-1,8', 8, 0),
+        ('3,9,7,9,10,9,4,9,99,-1,8', 0, 1),
+        ('3,3,1108,-1,8,3,4,3,99', 8, 1),
+        ('3,3,1108,-1,8,3,4,3,99', 0, 0),
+        ('3,3,1107,-1,8,3,4,3,99', 8, 0),
+        ('3,3,1107,-1,8,3,4,3,99', 0, 1),
+        ('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9', 0, 0),
+        ('3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9', 9, 1),
+        ('3,3,1105,-1,9,1101,0,0,12,4,12,99,1', 0, 0),
+        ('3,3,1105,-1,9,1101,0,0,12,4,12,99,1', 9, 1),
+        # ('', 0, 1),
+        # ('', 0, 1),
+    ])
+def test_day05_part2(program, test_input, output):
+    assert day05.part2([program], test_input) == output
+
+@pytest.mark.parametrize(
+    ['test_input', 'output'],
+    [
+        (7, 999),
+        (8, 1000),
+        (9, 1001),
+    ])
+def test_day05_part2_longer(test_input, output):
+    program = ('3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,'
+         '1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,'
+         '999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99')
+    assert day05.part2([program], test_input) == output
+
+def test_day05_part2_puzzle():
+    assert day05.part2(open('input05.txt'), 5) == 7731427
 
 def test_day06_part1():
     pass
