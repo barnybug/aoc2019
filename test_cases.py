@@ -1,6 +1,6 @@
 import numpy as np
 
-import day01, day02, day03
+import day01, day02, day03, day04
 
 def test_day01_part1():
     assert day01.part1([12]) == 2
@@ -30,10 +30,10 @@ def test_day03_part2():
     assert day03.part2(['R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51', 'U98,R91,D20,R16,D67,R40,U7,R15,U6,R7']) == 410
 
 def test_day04_part1():
-    pass
+    assert day04.parts('123450-123456')[0] == 1
 
 def test_day04_part2():
-    pass
+    assert day04.parts('123450-123456')[1] == 1
 
 def test_day05_part1():
     pass
