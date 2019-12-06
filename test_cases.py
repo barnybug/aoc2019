@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-import day01, day02, day03, day04, day05
+import day01, day02, day03, day04, day05, day06
 
 def test_day01_part1():
     assert day01.part1([12]) == 2
@@ -77,10 +77,33 @@ def test_day05_part2_puzzle():
     assert day05.part2(open('input05.txt'), 5) == 7731427
 
 def test_day06_part1():
-    pass
+    assert day06.part1('''COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L'''.split()) == 42
+    assert day06.part1(open('input06.txt')) == 171213
 
 def test_day06_part2():
-    pass
+    assert day06.part2('''COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L
+K)YOU
+I)SAN'''.split()) == 4
 
 def test_day07_part1():
     pass
