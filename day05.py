@@ -15,17 +15,6 @@ jumps = {
     6: lambda a: a == 0,
 }
 
-operands = {
-    1: 3,
-    2: 3,
-    3: 1,
-    4: 1,
-    5: 2,
-    6: 2,
-    7: 3,
-    8: 3,
-}
-
 def read1st(ins, ip):
     if (ins[ip] // 100) % 2:
         return ins[ip+1]
