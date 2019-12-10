@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
 
-import day01, day02, day03, day04, day05, day06, day07, day08
+import day01, day02, day03, day04, day05, day06, day07, day08, day09
+from intcode import Executor, Code
 
 def test_day01_part1():
     assert day01.part1([12]) == 2
@@ -120,11 +121,18 @@ def test_day08_part1():
 def test_day08_part2():
     assert day08.part2('0222112222120000', (2, 2)) == ' #\n# '
 
+def test_intcode():
+    assert Executor(Code('109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99')).complete() == [109, 1, 204, -1, 1001, 100, 1, 100, 1008, 100, 16, 101, 1006, 101, 0, 99]
+    assert Executor(Code('1102,34915192,34915192,7,4,7,99,0')).complete() == [1219070632396864]
+    assert Executor(Code('104,1125899906842624,99')).complete() == [1125899906842624]
+
 def test_day09_part1():
-    pass
+    code = Code(open('input09.txt'))
+    assert day09.part1(code) == [3340912345]
 
 def test_day09_part2():
-    pass
+    code = Code(open('input09.txt'))
+    assert day09.part2(code) == [51754]
 
 def test_day10_part1():
     pass
