@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09
-import day10, day11
+import day10, day11, day12
 from intcode import Executor, Code
 
 def test_day01_part1():
@@ -233,10 +233,24 @@ def test_day11_part2():
     pass
 
 def test_day12_part1():
-    pass
+    assert day12.part1('''<x=-1, y=0, z=2>
+<x=2, y=-10, z=-7>
+<x=4, y=-8, z=8>
+<x=3, y=5, z=-1>''', 10) == 179
+    assert day12.part1('''<x=-8, y=-10, z=0>
+<x=5, y=5, z=10>
+<x=2, y=-7, z=3>
+<x=9, y=-8, z=-3>''', 100) == 1940
 
 def test_day12_part2():
-    pass
+    assert day12.part2('''<x=-1, y=0, z=2>
+<x=2, y=-10, z=-7>
+<x=4, y=-8, z=8>
+<x=3, y=5, z=-1>''') == 2772
+    assert day12.part2('''<x=-8, y=-10, z=0>
+<x=5, y=5, z=10>
+<x=2, y=-7, z=3>
+<x=9, y=-8, z=-3>''') == 4686774924
 
 def test_day13_part1():
     pass
