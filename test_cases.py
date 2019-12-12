@@ -1,8 +1,9 @@
 import numpy as np
+from dataclasses import dataclass
 import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09
-import day10
+import day10, day11
 from intcode import Executor, Code
 
 def test_day01_part1():
@@ -220,8 +221,13 @@ def test_day10_part2():
 #.#.#.#####.####.###
 ###.##.####.##.#..##''', (11, 13)) == 802
 
-def test_day11_part1():
+class DummyExecutor:
     pass
+
+def test_day11_part1():
+    exe = DummyExecutor()
+    exe.runner = iter([1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0])
+    assert len(day11.robot(exe)) == 6
 
 def test_day11_part2():
     pass
