@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import numpy as np
-from util import loadints
 
 def part1(data):
     return None
