@@ -41,8 +41,9 @@ class Code:
 
 class Executor:
     def __init__(self, code):
-        self.ins = code
         self.inputs = []
+        self.iter = iter(self.inputs)
+        self.ins = code
         self.runner = self.run()
 
     def execute(self, *inputs):
@@ -86,7 +87,7 @@ class Executor:
                 ip += 4
             elif opcode == 3:
                 # print(f'#{ip}: input {test_input} to {ins[ip+1]}')
-                writeparam(1, self.inputs.pop(0))
+                writeparam(1, next(self.iter))
                 ip += 2
             elif opcode == 4:
                 yield readparam(1)

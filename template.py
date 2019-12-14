@@ -10,5 +10,6 @@ def part2(data):
     return None
 
 if __name__ == '__main__':
-    print(part1('inputX.txt'))
-    #print(part2('inputX.txt'))
+    data = open('inputX.txt').read()
+    print(part1(data))
+    # print(part2(data))
