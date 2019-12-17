@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09
-import day10, day11, day12, day13, day14, day15
+import day10, day11, day12, day13, day14, day15, day16
 from intcode import Executor, Code
 
 def test_day01_part1():
@@ -333,10 +333,19 @@ def test_day15_part2():
     pass
 
 def test_day16_part1():
-    pass
+    assert day16.part1('12345678', 1) == '48226158'
+    assert day16.part1('12345678', 2) == '34040438'
+    assert day16.part1('12345678', 3) == '03415518'
+    assert day16.part1('12345678', 4) == '01029498'
+
+    assert day16.part1('80871224585914546619083218645595', 100)[:8] == '24176176'
+    assert day16.part1('19617804207202209144916044189917', 100)[:8] == '73745418'
+    assert day16.part1('69317163492948606335995924319873', 100)[:8] == '52432133'
 
 def test_day16_part2():
-    pass
+    assert day16.part2('03036732577212944063491565474664', 100) == '84462026'
+    assert day16.part2('02935109699940807407585447034323', 100) == '78725270'
+    assert day16.part2('03081770884921959731165446850517', 100) == '53553731'
 
 def test_day18_part1():
     pass
