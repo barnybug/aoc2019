@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09
-import day10, day11, day12, day13, day14, day15, day16
+import day10, day11, day12, day13, day14, day15, day16, day17
 from intcode import Executor, Code
 
 def test_day01_part1():
@@ -346,6 +346,16 @@ def test_day16_part2():
     assert day16.part2('03036732577212944063491565474664', 100) == '84462026'
     assert day16.part2('02935109699940807407585447034323', 100) == '78725270'
     assert day16.part2('03081770884921959731165446850517', 100) == '53553731'
+
+def test_day17_part1_map():
+    s = '''..#..........
+..#..........
+#######...###
+#.#...#...#.#
+#############
+..#...#...#..
+..#####...^..'''
+    assert day17.part1_map(s) == 76
 
 def test_day18_part1():
     pass
