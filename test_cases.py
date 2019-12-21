@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09
-import day10, day11, day12, day13, day14, day15, day16, day17
+import day10, day11, day12, day13, day14, day15, day16, day17, day18
 from intcode import Executor, Code
 
 def test_day01_part1():
@@ -358,10 +358,66 @@ def test_day17_part1_map():
     assert day17.part1_map(s) == 76
 
 def test_day18_part1():
-    pass
+    assert day18.part1('''#########
+#b.A.@.a#
+#########''') == 8
+    assert day18.part1('''########################
+#f.D.E.e.C.b.A.@.a.B.c.#
+######################.#
+#d.....................#
+########################''') == 86
+    assert day18.part1('''########################
+#...............b.C.D.f#
+#.######################
+#.....@.a.B.c.d.A.e.F.g#
+########################''') == 132
+    assert day18.part1('''#################
+#i.G..c...e..H.p#
+########.########
+#j.A..b...f..D.o#
+########@########
+#k.E..a...g..B.n#
+########.########
+#l.F..d...h..C.m#
+#################''') == 136
+    assert day18.part1('''########################
+#@..............ac.GI.b#
+###d#e#f################
+###A#B#C################
+###g#h#i################
+########################''') == 81
 
 def test_day18_part2():
-    pass
+    assert day18.part2('''#######
+#a.#Cd#
+##...##
+##.@.##
+##...##
+#cB#Ab#
+#######''') == 8
+    assert day18.part2('''###############
+#d.ABC.#.....a#
+###### # ######
+#######@#######
+###### # ######
+#b.....#.....c#
+###############''') == 24
+    assert day18.part2('''#############
+#DcBa.#.GhKl#
+#.### # #I###
+#e#d##@##j#k#
+###C# # ###J#
+#fEbA.#.FgHi#
+#############''') == 32
+    assert day18.part2('''#############
+#g#f.D#..h#l#
+#F###e#E###.#
+#dCba # BcIJ#
+######@######
+#nK.L # G...#
+#M###N#H###.#
+#o#m..#i#jk.#
+#############''') == 72
 
 def test_day19_part1():
     pass
