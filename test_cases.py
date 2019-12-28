@@ -5,7 +5,7 @@ import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09, day10
 import day11, day12, day13, day14, day15, day16, day17, day18, day19, day20
-import day21
+import day21, day22
 from intcode import Code, Executor
 
 
@@ -550,11 +550,24 @@ def test_day21_part1():
 def test_day21_part2():
     pass
 
-def test_day22_part1():
-    pass
+def test_day22():
+    expected = [4,1,8,5,2,9,6,3,0,7]
+    steps = [
+        'deal with increment 7',
+        'deal into new stack',
+        'cut 4',
+        'deal into new stack',
+    ]
 
-def test_day22_part2():
-    pass
+    assert [day22.deal(steps, 10, i) for i in range(10)] == expected
+
+    assert [day22.dealrev(steps, 10, i) for i in expected] == [0,1,2,3,4,5,6,7,8,9]
+
+    for times in range(1, 100):
+        xs = list(range(10))
+        for i in range(times):
+            xs = [day22.deal(steps, 10, i) for i in xs]
+        assert [day22.dealrevtimes(steps, 10, i, times) for i in xs] == [0,1,2,3,4,5,6,7,8,9]
 
 def test_day23_part1():
     pass
