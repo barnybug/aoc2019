@@ -32,15 +32,13 @@ def part2(data):
     paddle = 0
     def track_ball():
         # simple strategy - paddle tracks ball
-        while True:
-            if ball < paddle:
-                yield -1
-            elif ball > paddle:
-                yield 1
-            else:
-                yield 0
+        if ball < paddle:
+            return -1
+        elif ball > paddle:
+            return 1
+        return 0
 
-    exe.iter = track_ball()
+    exe.input_next = track_ball
     for x, y, t in zip(exe.runner, exe.runner, exe.runner):
         if (x, y) == (-1, 0):
             print("\033[1;45H%10d" % t)

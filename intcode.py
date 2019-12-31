@@ -40,15 +40,19 @@ class Code:
         return len(self.ins)
 
 class Executor:
-    def __init__(self, code):
-        self.inputs = []
-        self.iter = iter(self.inputs)
+    def __init__(self, code, inputs=None):
+        self.inputs = inputs or []
+        self.input_next = lambda: self.inputs.pop(0)
         self.ins = code
         self.runner = self.run()
 
     def execute(self, *inputs):
         self.inputs.extend(inputs)
         return next(self.runner)
+
+    def executen(self, n, *inputs):
+        self.inputs.extend(inputs)
+        return [next(self.runner) for _ in range(n)]
 
     def complete(self, *inputs):
         self.inputs.extend(inputs)
@@ -87,7 +91,12 @@ class Executor:
                 ip += 4
             elif opcode == 3:
                 # print(f'#{ip}: input {test_input} to {ins[ip+1]}')
-                writeparam(1, next(self.iter))
+                while True:
+                    try:
+                        writeparam(1, self.input_next())
+                        break
+                    except (StopIteration, IndexError):
+                        yield None # suspend
                 ip += 2
             elif opcode == 4:
                 yield readparam(1)
