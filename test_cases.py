@@ -5,7 +5,7 @@ import pytest
 
 import day01, day02, day03, day04, day05, day06, day07, day08, day09, day10
 import day11, day12, day13, day14, day15, day16, day17, day18, day19, day20
-import day21, day22, day23
+import day21, day22, day23, day24
 from intcode import Code, Executor
 
 
@@ -576,10 +576,25 @@ def test_day23_part2():
     pass
 
 def test_day24_part1():
-    pass
+    assert day24.part1('''....#
+#..#.
+#..##
+..#..
+#....''') == 2129920
+
+def test_day24_rating():
+    assert day24.rating(day24.parse('''.....
+.....
+.....
+#....
+.#...''')) == 2129920
 
 def test_day24_part2():
-    pass
+    assert day24.part2('''....#
+#..#.
+#..##
+..#..
+#....''', 10) == 99
 
 def test_day25_part1():
     pass
